@@ -1,19 +1,22 @@
-module StorageSystem.StorageSystem (productionStorageSystem, StorageSystem(..)) where
+module StorageSystem.StorageSystem (StorageSystem(..)) where
 import Prelude hiding (read)
 import StorageSystem.Types
+import StorageSystem.Slice as Slice
+
+import qualified StorageSystem.SliceRepository as SliceRepo
 
 
 
-read::SliceId -> Blocks
-read _ = undefined
+read::SliceRepo.SliceRepository -> SliceId -> Blocks
+read sliceRepository sliceId = let read = SliceRepo.readFrom sliceRepository
+                                   slice = read sliceId
+                               --in fst $ Slice.read slice
+                               in Blocks "koekoek"
+                               
 
 data StorageSystem = StorageSystem {
   readFrom::SliceId -> Blocks
 }
 
-productionStorageSystem :: StorageSystem
-productionStorageSystem = StorageSystem {
-  readFrom = read
-}
 
 

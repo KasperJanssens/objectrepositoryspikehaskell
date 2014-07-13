@@ -3,5 +3,9 @@ module CodingSystem.CodingSystem where
 import StorageSystem.Types (Blocks)
 import ObjectRepository.Types(Blob)
 
-decode:: Blocks -> Blob
-decode _ = undefined
+decodeLocal:: Blocks -> Blob
+decodeLocal _ = undefined
+
+data CodingSystem = CodingSystem {
+  decode::Blocks -> Blob
+}
