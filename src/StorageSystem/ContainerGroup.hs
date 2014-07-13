@@ -1,5 +1,9 @@
 module StorageSystem.ContainerGroup where
 import StorageSystem.Types
 
-read::SequenceNumber -> (Blocks,MightBeDeleted)
-read _ = undefined
+readLocal::SequenceNumber -> (Blocks,MightBeDeleted)
+readLocal _ = undefined
+
+data ContainerGroupType = ContainerGroupType {
+  read::SequenceNumber -> (Blocks,MightBeDeleted)
+}

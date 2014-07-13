@@ -7,10 +7,11 @@ import qualified StorageSystem.SliceRepository as SliceRepo
 
 
 
-read::SliceRepo.SliceRepository -> SliceId -> Blocks
-read sliceRepository sliceId = let read = SliceRepo.readFrom sliceRepository
-                                   slice = read sliceId
-                               in fst $ Slice.read slice
+read::SliceRepo.SliceRepository -> SliceActions ->  SliceId -> Blocks
+read sliceRepository sliceActions sliceId = let read = SliceRepo.readFrom sliceRepository
+                                                slice = read sliceId
+                                            in fst $ Slice.read sliceActions slice
+                               
                                
                                
 
