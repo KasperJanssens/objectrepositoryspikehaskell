@@ -6,7 +6,9 @@ import ObjectRepository.ObjectMetadata(ObjectMetadata (ObjectMetadata))
 import ObjectRepository.Types
 import Prelude hiding (read)
 
-
+data ObjectRepository = ObjectRepository {
+  findIn::ObjectId -> Object
+}
 --'Proof of concept' of how let ... in works, not really good style
 find::StorageSystem -> CodingSystem -> ObjectId -> Object
 find storageSystem codingSystem objectId = let (blockOfLastSlice, ObjectMetadata slices) =

@@ -1,6 +1,12 @@
 module StorageSystem.Slice where
 import StorageSystem.Types
 
-read::ContainerGroup -> Slice -> (Blocks, MightBeDeleted)
-read _ _ = undefined
+readLocal:: ContainerGroup -> Slice -> (Blocks, MightBeDeleted)
+readLocal _ _ = undefined
+
+class SliceType a where
+    read :: a -> (Blocks, MightBeDeleted)
+
+instance SliceType Slice where
+    read slice = undefined
 
